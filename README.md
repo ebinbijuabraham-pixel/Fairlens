@@ -29,15 +29,27 @@ FairLens is fully containerized. You do not need to install Python or any librar
 Clone the Repository:
 
 **Bash**
+
+```
+
 git clone https://github.com/yourusername/fairlens-project.git
 
 cd fairlens-project
+
+```
 
 Launch the Microservices:
 
 **Bash**
 
+
+
+```
+
 docker compose up --build
+
+
+```
 
 Access the Platform:
 
@@ -58,3 +70,15 @@ Instead of just looking at gender or race, FairLens uses Mutual Information (MI)
 When bias is detected, the engine doesn't just delete data. It uses Generative AI to create new, mathematically plausible data points for the underrepresented group until the decision boundary is fair. This ensures the resulting model is both accurate and ethical.
 
 The sample dataset is from Kaggle
+
+https://fairlens-hkri.onrender.com/docs#
+
+Important Note :
+
+    Deployment Status: This project is hosted on Render's Free Tier.
+
+        Cold Start: If the link has not been accessed recently, the server will "sleep." Please allow 30–60 seconds for the initial load; the "FairLens API is running" message (or the Swagger UI) will appear once the container wakes up.
+
+        Performance: Once active, the API will respond at normal speeds.
+
+        Interactive Testing: To test the core functionality, please navigate to the /docs endpoint (Swagger UI) where you can upload test CSVs directly.
