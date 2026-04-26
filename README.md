@@ -56,3 +56,5 @@ Instead of just looking at gender or race, FairLens uses Mutual Information (MI)
 
 3. Synthetic Remediation
 When bias is detected, the engine doesn't just delete data. It uses Generative AI to create new, mathematically plausible data points for the underrepresented group until the decision boundary is fair. This ensures the resulting model is both accurate and ethical.
+
+The sample dataset is from Kaggle
