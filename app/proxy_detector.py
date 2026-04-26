@@ -22,12 +22,23 @@ class ProxyDetector:
         if df_clean[protected_col].nunique() < 2:
             return {"error": f"Protected column '{protected_col}' has fewer than 2 unique values."}
 
-        le = LabelEncoder()
-
-        # Encode all object / category columns to numeric
+        # ── Encode every column with its own LabelEncoder ──────────────
+        # Use a fresh encoder per column to avoid cross-column state bleed.
+        # Cast to str first so mixed-type / nullable columns are handled cleanly.
         for col in df_clean.columns:
             if df_clean[col].dtype == "object" or df_clean[col].dtype.name == "category":
-                df_clean[col] = le.fit_transform(df_clean[col].astype(str))
+                df_clean[col] = LabelEncoder().fit_transform(df_clean[col].astype(str))
+
+        # Force ALL remaining columns to float — catches booleans,
+        # nullable Int64, and any other non-standard dtypes sklearn rejects.
+        for col in df_clean.columns:
+            try:
+                df_clean[col] = df_clean[col].astype(float)
+            except (ValueError, TypeError):
+                # Last resort: label-encode whatever couldn't be cast
+                df_clean[col] = LabelEncoder().fit_transform(
+                    df_clean[col].astype(str)
+                ).astype(float)
 
         X = df_clean.drop(columns=[protected_col])
         y = df_clean[protected_col]
