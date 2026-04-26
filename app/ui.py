@@ -3,7 +3,6 @@ import pandas as pd
 import requests
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os
 
 # ── Page Config ────────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -12,7 +11,7 @@ st.set_page_config(
     layout="wide",
 )
 
-API_URL = os.getenv("API_URL", "http://api:80")
+API_URL = "http://api:80"
 
 # ── Header ─────────────────────────────────────────────────────────────────────
 st.title("🛡️ FairLens: FinTech Bias Detection & Repair")
