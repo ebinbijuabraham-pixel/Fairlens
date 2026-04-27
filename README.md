@@ -53,7 +53,7 @@ docker compose up --build
 
 Access the Platform:
 
-Dashboard : https://fairlens-ui-1025046730042.asia-south1.run.app/
+Dashboard : https://fairlens-ui-1025046730042.asia-south1.run.app/ (Deployed using Google Cloud)
 
 
 **How It Works (The Math)**
