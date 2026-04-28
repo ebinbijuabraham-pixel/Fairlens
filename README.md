@@ -1,3 +1,5 @@
+**FairLens: FinTech Bias Detection & Repair**
+
 FairLens is an AI-powered ethics platform designed for financial institutions to audit loan approval algorithms for systemic bias. Using advanced statistical metrics and generative AI, FairLens detects "Redlining" proxies and remediates historical bias to ensure regulatory compliance (e.g., GDPR, ECOA).
 
 **Key Features**
@@ -10,7 +12,7 @@ Generative Synthetic Repair: Uses SMOTENC (Synthetic Minority Over-sampling Tech
 
 XAI Scorecard: Provides an Explainability Scorecard with side-by-side visual distributions showing the transition from a biased portfolio to a fair one.
 
-🛠️ Tech Stack
+**Tech Stack**
 
 Backend: FastAPI (Python 3.11)
 
@@ -21,6 +23,8 @@ AI/ML: Scikit-learn, Imbalanced-learn (SMOTENC)
 Visualization: Seaborn, Matplotlib
 
 DevOps: Docker, Docker Compose
+
+Deploy platform: Google Cloud
 
 **How to Run**
 
@@ -51,7 +55,8 @@ docker compose up --build
 
 ```
 
-Access the Platform:
+
+**Access the Platform:**
 
 Dashboard : https://fairlens-ui-1025046730042.asia-south1.run.app/ (Deployed using Google Cloud)
 
@@ -69,4 +74,4 @@ Instead of just looking at gender or race, FairLens uses Mutual Information (MI)
 3. Synthetic Remediation
 When bias is detected, the engine doesn't just delete data. It uses Generative AI to create new, mathematically plausible data points for the underrepresented group until the decision boundary is fair. This ensures the resulting model is both accurate and ethical.
 
-The sample dataset is from Kaggle
+The sample datasets are from Kaggle and AI generated
